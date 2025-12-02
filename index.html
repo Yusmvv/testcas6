@@ -37,7 +37,19 @@
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            html {
+                font-size: 16px;
+            }
         }
 
         body {
@@ -48,6 +60,7 @@
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
+            padding-bottom: 20px;
         }
 
         body::before {
@@ -69,21 +82,39 @@
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
         }
 
         /* Сетка для контента */
         .two-column-grid {
             display: grid;
             grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
-            gap: 24px;
+            gap: 20px;
             align-items: start;
         }
 
         @media (max-width: 1024px) {
             .two-column-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .two-column-grid {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .two-column-grid {
+                gap: 16px;
             }
         }
 
@@ -99,28 +130,30 @@
             overflow: hidden;
         }
 
-        .glass-panel:hover {
-            background: var(--glass-white-hover);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-soft), 0 15px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        @media (hover: none) {
+        @media (hover: hover) {
             .glass-panel:hover {
-                transform: none;
+                background: var(--glass-white-hover);
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-soft), 0 15px 40px rgba(0, 0, 0, 0.5);
             }
         }
 
         /* Первый экран */
         .hero {
-            padding: 100px 0 60px;
+            padding: 80px 0 40px;
             position: relative;
             text-align: center;
         }
 
         @media (max-width: 768px) {
             .hero {
-                padding: 80px 0 40px;
+                padding: 60px 0 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 50px 0 24px;
             }
         }
 
@@ -130,10 +163,10 @@
         }
 
         .hero h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             line-height: 1.15;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             letter-spacing: -0.5px;
             background: linear-gradient(90deg, #FFFFFF, var(--accent-aqua));
             -webkit-background-clip: text;
@@ -141,24 +174,60 @@
             color: transparent;
         }
 
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+        }
+
         .hero-subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.7;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 14px;
+            }
         }
 
         .hero-cta-text {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             font-style: italic;
             position: relative;
             display: inline-block;
             padding: 0 20px;
+        }
+
+        @media (max-width: 480px) {
+            .hero-cta-text {
+                font-size: 0.8rem;
+                margin-bottom: 16px;
+                padding: 0 16px;
+            }
         }
 
         .hero-cta-text::before, .hero-cta-text::after {
@@ -167,7 +236,7 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--accent-lime);
-            font-size: 12px;
+            font-size: 10px;
         }
 
         .hero-cta-text::before {
@@ -183,11 +252,11 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 16px 32px;
+            gap: 8px;
+            padding: 14px 24px;
             border-radius: 12px;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             text-decoration: none;
             transition: var(--transition);
             border: none;
@@ -196,6 +265,13 @@
             position: relative;
             overflow: hidden;
             white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
         }
 
         .btn::after {
@@ -219,11 +295,6 @@
             box-shadow: 0 8px 30px rgba(156, 75, 255, 0.3);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(156, 75, 255, 0.4);
-        }
-
         .btn-secondary {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
@@ -231,29 +302,55 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--accent-lime);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-neon-lime);
+        @media (hover: hover) {
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 40px rgba(156, 75, 255, 0.4);
+            }
+
+            .btn-secondary:hover {
+                background: rgba(255, 255, 255, 0.12);
+                border-color: var(--accent-lime);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-neon-lime);
+            }
         }
 
         .btn-small {
-            padding: 10px 18px;
+            padding: 10px 16px;
             font-size: 0.85rem;
             font-weight: 600;
             border-radius: 10px;
         }
 
+        @media (max-width: 480px) {
+            .btn-small {
+                padding: 9px 14px;
+                font-size: 0.8rem;
+            }
+        }
+
         /* Конструктор фильтров */
         .constructor-wrapper {
-            padding: 40px 0 80px;
+            padding: 30px 0 50px;
+        }
+
+        @media (max-width: 768px) {
+            .constructor-wrapper {
+                padding: 24px 0 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .constructor-wrapper {
+                padding: 20px 0 32px;
+            }
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             text-align: center;
             background: linear-gradient(90deg, var(--accent-lime), var(--accent-aqua));
             -webkit-background-clip: text;
@@ -262,24 +359,50 @@
             letter-spacing: -0.5px;
         }
 
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.3rem;
+                margin-bottom: 8px;
+            }
+        }
+
         .section-subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 32px;
-            line-height: 1.7;
+            margin: 0 auto 24px;
+            line-height: 1.6;
         }
 
-        /* Боковая панель фильтров */
+        @media (max-width: 768px) {
+            .section-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 16px;
+            }
+        }
+
+        /* Боковая панель фильтров - шаговый режим */
         .filter-sidebar {
-            position: sticky;
-            top: 100px;
             background: var(--glass-white);
             backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--border-radius);
             border: 1px solid rgba(255, 255, 255, 0.07);
-            padding: 20px;
+            padding: 16px;
             height: fit-content;
         }
 
@@ -290,76 +413,61 @@
             }
         }
 
-        .filter-header {
+        @media (max-width: 480px) {
+            .filter-sidebar {
+                padding: 14px;
+            }
+        }
+
+        /* Стили для шагового режима */
+        .filter-steps-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            flex-direction: column;
+            gap: 16px;
         }
 
-        .filter-header h3 {
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        @media (max-width: 480px) {
+            .filter-steps-container {
+                gap: 12px;
+            }
         }
 
-        .filter-header h3 i {
-            color: var(--accent-aqua);
-            font-size: 16px;
-        }
-
-        .reset-filters {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-secondary);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-        }
-
-        .reset-filters:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--accent-lime);
-            border-color: var(--accent-lime);
-        }
-
-        .filter-group {
-            margin-bottom: 20px;
-            padding: 16px;
+        .filter-step {
             background: rgba(255, 255, 255, 0.03);
             border-radius: var(--border-radius-sm);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px;
             transition: var(--transition);
         }
 
-        .filter-group:hover {
-            border-color: rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.04);
+        @media (max-width: 480px) {
+            .filter-step {
+                padding: 14px;
+            }
         }
 
-        .filter-group:last-child {
-            margin-bottom: 0;
+        .filter-step.active {
+            border-color: var(--accent-lime);
+            background: rgba(204, 255, 0, 0.05);
+            box-shadow: var(--shadow-neon-lime);
         }
 
-        .group-header {
+        .filter-step-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 14px;
+            cursor: pointer;
+            user-select: none;
         }
 
-        .group-header h4 {
+        @media (max-width: 480px) {
+            .filter-step-header {
+                margin-bottom: 12px;
+            }
+        }
+
+        .filter-step-header h4 {
             font-size: 0.95rem;
             color: var(--text-primary);
             display: flex;
@@ -367,10 +475,49 @@
             gap: 8px;
         }
 
-        .group-header h4 i {
+        @media (max-width: 480px) {
+            .filter-step-header h4 {
+                font-size: 0.9rem;
+            }
+        }
+
+        .filter-step-header h4 i {
             color: var(--accent-aqua);
             font-size: 14px;
             width: 18px;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .filter-step.active .step-number {
+            background: var(--accent-lime);
+            color: var(--bg-dark);
+        }
+
+        .filter-step-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .filter-step.active .filter-step-content {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .selected-count {
@@ -387,7 +534,13 @@
         .filter-options {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .filter-options {
+                gap: 5px;
+            }
         }
 
         .filter-option {
@@ -395,19 +548,27 @@
             align-items: center;
             justify-content: space-between;
             gap: 10px;
-            padding: 12px 14px;
+            padding: 10px 12px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             transition: var(--transition);
             user-select: none;
         }
 
-        .filter-option:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateX(4px);
+        @media (max-width: 480px) {
+            .filter-option {
+                padding: 9px 10px;
+                min-height: 42px;
+            }
+        }
+
+        @media (hover: hover) {
+            .filter-option:hover {
+                background: rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.15);
+            }
         }
 
         .filter-option.active {
@@ -431,36 +592,58 @@
         }
 
         .option-icon {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+            border-radius: 6px;
             transition: var(--transition);
             flex-shrink: 0;
+        }
+
+        @media (max-width: 480px) {
+            .option-icon {
+                width: 26px;
+                height: 26px;
+                font-size: 12px;
+            }
         }
 
         .option-text {
             font-weight: 500;
             flex-grow: 1;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
+        @media (max-width: 480px) {
+            .option-text {
+                font-size: 0.8rem;
+            }
+        }
+
         .option-badge {
             background: rgba(255, 255, 255, 0.1);
             color: var(--text-secondary);
-            padding: 4px 8px;
+            padding: 3px 6px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            min-width: 28px;
+            min-width: 24px;
             text-align: center;
             flex-shrink: 0;
+        }
+
+        @media (max-width: 480px) {
+            .option-badge {
+                font-size: 0.65rem;
+                min-width: 22px;
+                padding: 2px 5px;
+            }
         }
 
         .filter-option.active .option-badge {
@@ -469,26 +652,41 @@
         }
 
         .filter-actions {
-            margin-top: 24px;
-            padding-top: 20px;
+            margin-top: 20px;
+            padding-top: 16px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .filter-actions {
+                margin-top: 16px;
+                padding-top: 14px;
+                gap: 8px;
+            }
         }
 
         /* Сетка карточек */
         .bonuses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
             width: 100%;
         }
 
         @media (max-width: 768px) {
             .bonuses-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bonuses-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
+                gap: 12px;
             }
         }
 
@@ -508,132 +706,206 @@
             display: none;
         }
 
-        .bonus-card:hover {
-            transform: translateY(-5px);
-            background: var(--glass-white-hover);
-            border-color: rgba(255, 255, 255, 0.12);
-            box-shadow: var(--shadow-soft), var(--shadow-neon-purple);
+        @media (hover: hover) {
+            .bonus-card:hover {
+                transform: translateY(-3px);
+                background: var(--glass-white-hover);
+                border-color: rgba(255, 255, 255, 0.12);
+                box-shadow: var(--shadow-soft), var(--shadow-neon-purple);
+            }
         }
 
         .bonus-header {
-            padding: 20px 20px 16px;
+            padding: 16px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        @media (max-width: 480px) {
+            .bonus-header {
+                padding: 14px;
+            }
         }
 
         .bonus-casino {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            margin-bottom: 16px;
-            gap: 12px;
+            margin-bottom: 12px;
+            gap: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .bonus-casino {
+                margin-bottom: 10px;
+            }
         }
 
         .bonus-casino h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--text-primary);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             flex: 1;
             min-width: 0;
         }
 
+        @media (max-width: 480px) {
+            .bonus-casino h3 {
+                font-size: 1.1rem;
+                gap: 6px;
+            }
+        }
+
         .casino-icon {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            border-radius: 8px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 14px;
             color: white;
             flex-shrink: 0;
+        }
+
+        @media (max-width: 480px) {
+            .casino-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
         }
 
         .bonus-badge {
             background: linear-gradient(135deg, var(--accent-lime), var(--accent-aqua));
             color: var(--bg-dark);
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 50px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 700;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
             white-space: nowrap;
             flex-shrink: 0;
         }
 
+        @media (max-width: 480px) {
+            .bonus-badge {
+                font-size: 0.6rem;
+                padding: 2px 6px;
+            }
+        }
+
         .bonus-updated {
             color: var(--accent-aqua);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        @media (max-width: 480px) {
+            .bonus-updated {
+                font-size: 0.6rem;
+            }
+        }
+
+        .bonus-updated i {
+            font-size: 8px;
+        }
+
+        .bonus-content {
+            padding: 16px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .bonus-content {
+                padding: 14px;
+                gap: 14px;
+            }
+        }
+
+        .bonus-conditions h4 {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            color: var(--accent-aqua);
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .bonus-updated i {
-            font-size: 10px;
-        }
-
-        .bonus-content {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .bonus-conditions h4 {
-            font-size: 0.95rem;
-            margin-bottom: 14px;
-            color: var(--accent-aqua);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        @media (max-width: 480px) {
+            .bonus-conditions h4 {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+            }
         }
 
         .bonus-conditions h4 i {
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .conditions-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .conditions-grid {
+                gap: 6px;
+            }
         }
 
         .condition {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 8px;
             background: rgba(255, 255, 255, 0.04);
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 480px) {
+            .condition {
+                padding: 6px;
+                font-size: 0.75rem;
+            }
         }
 
         .condition i {
             color: var(--accent-lime);
-            font-size: 14px;
-            width: 16px;
+            font-size: 12px;
+            width: 14px;
             text-align: center;
             flex-shrink: 0;
-        }
-
-        .condition span {
-            font-size: 0.85rem;
-            line-height: 1.5;
+            margin-top: 1px;
         }
 
         .bonus-actions {
-            padding: 0 20px 20px;
+            padding: 0 16px 16px;
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
 
         @media (max-width: 480px) {
+            .bonus-actions {
+                padding: 0 14px 14px;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 400px) {
             .bonus-actions {
                 flex-direction: column;
             }
@@ -641,14 +913,23 @@
 
         .btn-bonus {
             flex: 1;
-            padding: 14px;
-            font-size: 0.9rem;
+            padding: 12px;
+            font-size: 0.85rem;
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 8px;
+            min-height: 44px;
+        }
+
+        @media (max-width: 480px) {
+            .btn-bonus {
+                padding: 10px;
+                font-size: 0.8rem;
+                min-height: 40px;
+            }
         }
 
         .btn-bonus i {
-            font-size: 14px;
+            font-size: 12px;
         }
 
         /* Упрощенное МОДАЛЬНОЕ ОКНО */
@@ -663,11 +944,20 @@
             z-index: 2000;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             padding: 16px;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 480px) {
+            .modal-overlay {
+                padding: 12px;
+                align-items: flex-start;
+            }
         }
 
         .modal-overlay.active {
@@ -682,13 +972,26 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
             width: 100%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
+            max-width: 600px;
+            margin: 20px auto;
             transform: translateY(30px);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 768px) {
+            .modal-container {
+                max-width: 500px;
+                margin: 10px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-container {
+                max-width: 100%;
+                margin: 5px auto;
+                border-radius: 12px;
+            }
         }
 
         .modal-overlay.active .modal-container {
@@ -696,11 +999,18 @@
         }
 
         .modal-header {
-            padding: 24px 24px 0;
+            padding: 20px 20px 16px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-header {
+                padding: 16px 16px 12px;
+                margin-bottom: 6px;
+            }
         }
 
         .modal-header-content {
@@ -709,95 +1019,146 @@
         }
 
         .modal-casino-name {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--text-primary);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
+        @media (max-width: 480px) {
+            .modal-casino-name {
+                font-size: 1.2rem;
+                margin-bottom: 6px;
+                gap: 8px;
+            }
+        }
+
         .modal-casino-icon {
-            width: 44px;
-            height: 44px;
+            width: 36px;
+            height: 36px;
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 16px;
             color: white;
             flex-shrink: 0;
+        }
+
+        @media (max-width: 480px) {
+            .modal-casino-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
         }
 
         .modal-badge-row {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
+            gap: 10px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
+        }
+
+        @media (max-width: 480px) {
+            .modal-badge-row {
+                gap: 8px;
+                margin-bottom: 10px;
+            }
         }
 
         .modal-badge {
             background: linear-gradient(135deg, var(--accent-lime), var(--accent-aqua));
             color: var(--bg-dark);
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-badge {
+                padding: 4px 10px;
+                font-size: 0.7rem;
+            }
         }
 
         .modal-updated {
             color: var(--accent-aqua);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-updated {
+                font-size: 0.7rem;
+            }
         }
 
         .modal-close {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--text-secondary);
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: var(--transition);
             flex-shrink: 0;
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        .modal-close:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: var(--accent-lime);
-            border-color: var(--accent-lime);
-            transform: rotate(90deg);
+        @media (max-width: 480px) {
+            .modal-close {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (hover: hover) {
+            .modal-close:hover {
+                background: rgba(255, 255, 255, 0.12);
+                color: var(--accent-lime);
+                border-color: var(--accent-lime);
+                transform: rotate(90deg);
+            }
         }
 
         .modal-content {
-            padding: 0 24px 24px;
+            padding: 0 20px 20px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 0 16px 16px;
+            }
         }
 
         /* Упрощенная сетка для модального окна */
         .modal-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 24px;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .modal-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
+                gap: 12px;
+                margin-bottom: 16px;
             }
         }
 
@@ -808,58 +1169,88 @@
             padding: 16px;
         }
 
+        @media (max-width: 480px) {
+            .modal-section {
+                padding: 14px;
+            }
+        }
+
         .modal-section h3 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--accent-aqua);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-section h3 {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
         }
 
         .modal-section h3 i {
-            font-size: 14px;
+            font-size: 12px;
         }
 
         /* Условия в модальном окне */
         .modal-conditions {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-conditions {
+                gap: 6px;
+            }
         }
 
         .modal-condition {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 10px;
             background: rgba(255, 255, 255, 0.04);
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 480px) {
+            .modal-condition {
+                padding: 8px;
+                font-size: 0.8rem;
+            }
         }
 
         .modal-condition i {
             color: var(--accent-lime);
-            font-size: 14px;
-            width: 20px;
+            font-size: 12px;
+            width: 16px;
             text-align: center;
             flex-shrink: 0;
-        }
-
-        .modal-condition span {
-            font-weight: 500;
-            flex: 1;
-            font-size: 0.85rem;
+            margin-top: 1px;
         }
 
         /* Параметры в модальном окне - сетка 2x2 */
         .modal-params-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 10px;
         }
 
         @media (max-width: 480px) {
+            .modal-params-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 360px) {
             .modal-params-grid {
                 grid-template-columns: 1fr;
             }
@@ -868,69 +1259,94 @@
         .modal-param {
             background: rgba(255, 255, 255, 0.04);
             border-radius: 8px;
-            padding: 14px;
+            padding: 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
         }
 
+        @media (max-width: 480px) {
+            .modal-param {
+                padding: 10px;
+            }
+        }
+
         .modal-param-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-secondary);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-param-label {
+                font-size: 0.6rem;
+            }
         }
 
         .modal-param-value {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 800;
             color: var(--text-primary);
+        }
+
+        @media (max-width: 480px) {
+            .modal-param-value {
+                font-size: 0.85rem;
+            }
         }
 
         /* Упрощенная аналитика в модальном окне */
         .modal-analytics {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-analytics {
+                gap: 6px;
+            }
         }
 
         .modal-analytics-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 12px;
+            padding: 8px 10px;
             background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.85rem;
         }
 
-        .modal-analytics-item:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 255, 255, 0.06);
+        @media (max-width: 480px) {
+            .modal-analytics-item {
+                padding: 7px 9px;
+                font-size: 0.8rem;
+            }
         }
 
         .modal-analytics-label {
             color: var(--text-secondary);
-            font-size: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             flex: 1;
             min-width: 0;
         }
 
         .modal-analytics-label i {
             color: var(--accent-lime);
-            font-size: 11px;
-            width: 14px;
+            font-size: 10px;
+            width: 12px;
             flex-shrink: 0;
         }
 
         .modal-analytics-value {
             color: var(--text-primary);
             font-weight: 600;
-            font-size: 0.8rem;
             flex-shrink: 0;
             margin-left: 8px;
         }
@@ -947,45 +1363,112 @@
         .modal-games {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 12px;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-games {
+                gap: 5px;
+                margin-top: 8px;
+            }
         }
 
         .modal-game-tag {
             background: rgba(74, 111, 255, 0.1);
             color: var(--accent-blue);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.65rem;
             font-weight: 500;
             border: 1px solid rgba(74, 111, 255, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .modal-game-tag {
+                padding: 3px 6px;
+                font-size: 0.6rem;
+            }
+        }
+
+        /* Вейджер в модальном окне */
+        .modal-wager {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 480px) {
+            .modal-wager {
+                margin-top: 10px;
+                padding-top: 8px;
+            }
+        }
+
+        .modal-wager h4 {
+            font-size: 0.85rem;
+            color: var(--accent-aqua);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-wager h4 {
+                font-size: 0.8rem;
+            }
+        }
+
+        .modal-wager p {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 480px) {
+            .modal-wager p {
+                font-size: 0.7rem;
+            }
         }
 
         /* Кнопки действий в модальном окне */
         .modal-actions {
             display: flex;
-            gap: 12px;
-            margin-top: 24px;
-            padding-top: 20px;
+            gap: 10px;
+            margin-top: 16px;
+            padding-top: 16px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         @media (max-width: 480px) {
             .modal-actions {
+                gap: 8px;
+                margin-top: 14px;
+                padding-top: 14px;
                 flex-direction: column;
             }
         }
 
         .modal-btn {
             flex: 1;
-            padding: 16px;
-            font-size: 0.95rem;
+            padding: 14px;
+            font-size: 0.9rem;
             font-weight: 700;
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
+            min-height: 48px;
+        }
+
+        @media (max-width: 480px) {
+            .modal-btn {
+                padding: 12px;
+                font-size: 0.85rem;
+                min-height: 44px;
+            }
         }
 
         /* Результаты подбора */
@@ -993,20 +1476,38 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
-            padding: 0 4px;
+            margin-bottom: 16px;
+            padding: 0 2px;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .results-header {
+                margin-bottom: 12px;
+            }
         }
 
         .results-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-primary);
         }
 
+        @media (max-width: 480px) {
+            .results-header h3 {
+                font-size: 1.1rem;
+            }
+        }
+
         .results-count {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
+        }
+
+        @media (max-width: 480px) {
+            .results-count {
+                font-size: 0.85rem;
+            }
         }
 
         .results-count span {
@@ -1017,199 +1518,143 @@
         .no-results {
             grid-column: 1 / -1;
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 16px;
             background: rgba(255, 255, 255, 0.03);
             border-radius: var(--border-radius);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        @media (max-width: 480px) {
+            .no-results {
+                padding: 24px 12px;
+            }
+        }
+
         .no-results i {
-            font-size: 40px;
+            font-size: 32px;
             color: var(--text-secondary);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             opacity: 0.5;
         }
 
+        @media (max-width: 480px) {
+            .no-results i {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+        }
+
         .no-results h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .no-results h3 {
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+            }
         }
 
         .no-results p {
             color: var(--text-secondary);
             max-width: 500px;
             margin: 0 auto;
-            line-height: 1.6;
-            font-size: 0.9rem;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            html {
-                font-size: 15px;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 0.95rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .section-subtitle {
-                font-size: 0.95rem;
-                margin-bottom: 28px;
-            }
-            
-            .container {
-                padding: 0 16px;
-            }
-            
-            .filter-sidebar {
-                padding: 16px;
-            }
-            
-            .filter-group {
-                padding: 14px;
-            }
-            
-            .bonus-header,
-            .bonus-content {
-                padding: 16px;
-            }
-            
-            .bonus-actions {
-                padding: 0 16px 16px;
-            }
-            
-            .modal-header {
-                padding: 20px 20px 0;
-            }
-            
-            .modal-content {
-                padding: 0 20px 20px;
-            }
-            
-            .modal-casino-name {
-                font-size: 1.3rem;
-            }
-            
-            .modal-casino-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 16px;
-            }
+            line-height: 1.5;
+            font-size: 0.85rem;
         }
 
         @media (max-width: 480px) {
-            html {
-                font-size: 14px;
-            }
-            
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-            
-            .hero {
-                padding: 60px 0 32px;
-            }
-            
-            .hero-cta-text {
-                font-size: 0.85rem;
-                padding: 0 16px;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-                margin-bottom: 12px;
-            }
-            
-            .section-subtitle {
-                margin-bottom: 24px;
-            }
-            
-            .btn {
-                padding: 14px 24px;
-                font-size: 0.9rem;
-                width: 100%;
-            }
-            
-            .bonus-card:hover {
-                transform: none;
-            }
-            
-            .constructor-wrapper {
-                padding: 32px 0 60px;
-            }
-            
-            .filter-actions {
-                flex-direction: column;
-            }
-            
-            .results-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .hero h1 {
-                font-size: 1.4rem;
-            }
-            
-            .casino-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
-            }
-            
-            .bonus-casino h3 {
-                font-size: 1.1rem;
+            .no-results p {
+                font-size: 0.8rem;
             }
         }
 
         /* Улучшения для касаний на мобильных */
         @media (hover: none) {
-            .filter-option:hover {
-                transform: none;
+            .btn:active {
+                transform: scale(0.98);
             }
             
-            .btn:hover {
-                transform: none;
+            .filter-option:active {
+                background: rgba(255, 255, 255, 0.08);
+            }
+            
+            .modal-close:active {
+                transform: rotate(90deg);
             }
         }
 
         /* Увеличение зоны клика на мобильных */
         @media (max-width: 768px) {
             .filter-option {
-                min-height: 50px;
+                min-height: 44px;
             }
             
             .btn-bonus {
-                min-height: 48px;
+                min-height: 44px;
             }
-            
-            .modal-close {
-                width: 40px;
-                height: 40px;
+        }
+
+        /* Показать/скрыть фильтры на мобильных */
+        .filter-toggle {
+            display: none;
+            width: 100%;
+            margin-bottom: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 14px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 1024px) {
+            .filter-toggle {
+                display: flex;
             }
+        }
+
+        @media (max-width: 480px) {
+            .filter-toggle {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .filter-toggle i {
+            transition: var(--transition);
+        }
+
+        .filter-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        .filter-sidebar.collapsed {
+            display: none;
+        }
+
+        /* Анимации */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bonus-card {
+            animation: slideDown 0.3s ease;
         }
     </style>
 </head>
@@ -1218,10 +1663,10 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Мы анализируем весь рынок казино и подбираем лучшие персональные бонусы под ваш стиль игры</h1>
-                <p class="hero-subtitle">Каждый день вручную проверяем сотни предложений, актуализируем условия и показываем только рабочие и подтверждённые бонусы, доступные только нашим клиентам</p>
-                <p class="hero-cta-text">Подготовили для вас самые жирные бонусы, акции и реальные возможности заработать</p>
-                <a href="#constructor" class="btn btn-primary">Начать подбор бонусов</a>
+                <h1>Персональные бонусы под ваш стиль игры</h1>
+                <p class="hero-subtitle">Проверенные бонусы, доступные только нашим клиентам</p>
+                <p class="hero-cta-text">Самые выгодные предложения</p>
+                <a href="#constructor" class="btn btn-primary">Начать подбор</a>
             </div>
         </div>
     </section>
@@ -1229,178 +1674,146 @@
     <!-- Конструктор и результаты -->
     <section id="constructor" class="constructor-wrapper">
         <div class="container">
-            <h2 class="section-title">Подберите бонус под стиль своей игры</h2>
-            <p class="section-subtitle">Мы покажем только то, что реально даст преимущество</p>
+            <h2 class="section-title">Подберите бонус</h2>
+            <p class="section-subtitle">Только то, что даст реальное преимущество</p>
+            
+            <!-- Кнопка переключения фильтров на мобильных -->
+            <button class="filter-toggle" id="filterToggle">
+                <span><i class="fas fa-filter"></i> Фильтры подбора</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
             
             <div class="two-column-grid">
                 <!-- Боковая панель фильтров -->
-                <div class="filter-sidebar">
-                    <div class="filter-header">
-                        <h3><i class="fas fa-sliders-h"></i> Фильтры подбора</h3>
-                        <button class="reset-filters" id="resetFilters">
-                            <i class="fas fa-redo"></i> Сбросить
-                        </button>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <div class="group-header">
-                            <h4><i class="fas fa-bullseye"></i> Что вы хотите получить?</h4>
-                            <span class="selected-count" id="goalsCount">0</span>
-                        </div>
-                        <div class="filter-options">
-                            <div class="filter-option" data-filter="goal" data-value="max-bonus">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-crown"></i>
-                                    </div>
-                                    <span class="option-text">Максимальный бонус</span>
-                                </div>
-                                <div class="option-badge">12</div>
+                <div class="filter-sidebar" id="filterSidebar">
+                    <div class="filter-steps-container">
+                        <!-- Шаг 1: Что вы хотите получить? -->
+                        <div class="filter-step active" data-step="1">
+                            <div class="filter-step-header">
+                                <h4><i class="fas fa-bullseye"></i> Что вы хотите?</h4>
+                                <div class="step-number">1</div>
                             </div>
-                            <div class="filter-option" data-filter="goal" data-value="freespins">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-coins"></i>
+                            <div class="filter-step-content">
+                                <div class="filter-options">
+                                    <div class="filter-option" data-filter="goal" data-value="max-bonus">
+                                        <div class="option-left">
+                                            <div class="option-icon">
+                                                <i class="fas fa-crown"></i>
+                                            </div>
+                                            <span class="option-text">Макс. бонус</span>
+                                        </div>
+                                        <div class="option-badge">12</div>
                                     </div>
-                                    <span class="option-text">Фриспины</span>
-                                </div>
-                                <div class="option-badge">8</div>
-                            </div>
-                            <div class="filter-option" data-filter="goal" data-value="no-deposit">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-gift"></i>
+                                    <div class="filter-option" data-filter="goal" data-value="freespins">
+                                        <div class="option-left">
+                                            <div class="option-icon">
+                                                <i class="fas fa-coins"></i>
+                                            </div>
+                                            <span class="option-text">Фриспины</span>
+                                        </div>
+                                        <div class="option-badge">8</div>
                                     </div>
-                                    <span class="option-text">Бездепозитные</span>
-                                </div>
-                                <div class="option-badge">5</div>
-                            </div>
-                            <div class="filter-option" data-filter="goal" data-value="fast-payout">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-bolt"></i>
+                                    <div class="filter-option" data-filter="goal" data-value="no-deposit">
+                                        <div class="option-left">
+                                            <div class="option-icon">
+                                                <i class="fas fa-gift"></i>
+                                            </div>
+                                            <span class="option-text">Бездеп</span>
+                                        </div>
+                                        <div class="option-badge">5</div>
                                     </div>
-                                    <span class="option-text">Быстрые выплаты</span>
                                 </div>
-                                <div class="option-badge">15</div>
-                            </div>
-                            <div class="filter-option" data-filter="goal" data-value="no-verification">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-user-check"></i>
-                                    </div>
-                                    <span class="option-text">Без верификации</span>
-                                </div>
-                                <div class="option-badge">9</div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <div class="group-header">
-                            <h4><i class="fas fa-wallet"></i> Ваш депозит</h4>
-                            <span class="selected-count" id="depositCount">1</span>
-                        </div>
-                        <div class="filter-options">
-                            <div class="filter-option" data-filter="deposit" data-value="500">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-ruble-sign"></i>
-                                    </div>
-                                    <span class="option-text">500 ₽</span>
-                                </div>
-                                <div class="option-badge">7</div>
+                        
+                        <!-- Шаг 2: Ваш депозит -->
+                        <div class="filter-step" data-step="2">
+                            <div class="filter-step-header">
+                                <h4><i class="fas fa-wallet"></i> Депозит</h4>
+                                <div class="step-number">2</div>
                             </div>
-                            <div class="filter-option active" data-filter="deposit" data-value="1000">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-ruble-sign"></i>
+                            <div class="filter-step-content">
+                                <div class="filter-options">
+                                    <div class="filter-option" data-filter="deposit" data-value="500">
+                                        <div class="option-left">
+                                            <div class="option-icon">
+                                                <i class="fas fa-ruble-sign"></i>
+                                            </div>
+                                            <span class="option-text">500 ₽</span>
+                                        </div>
+                                        <div class="option-badge">7</div>
                                     </div>
-                                    <span class="option-text">1000 ₽</span>
-                                </div>
-                                <div class="option-badge">14</div>
-                            </div>
-                            <div class="filter-option" data-filter="deposit" data-value="3000">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-ruble-sign"></i>
+                                    <div class="filter-option active" data-filter="deposit" data-value="1000">
+                                        <div class="option-left">
+                                            <div class="option-icon">
+                                                <i class="fas fa-ruble-sign"></i>
+                                            </div>
+                                            <span class="option-text">1000 ₽</span>
+                                        </div>
+                                        <div class="option-badge">14</div>
                                     </div>
-                                    <span class="option-text">3000 ₽</span>
-                                </div>
-                                <div class="option-badge">11</div>
-                            </div>
-                            <div class="filter-option" data-filter="deposit" data-value="5000">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-ruble-sign"></i>
+                                    <div class="filter-option" data-filter="deposit" data-value="3000">
+                                        <div class="option-left">
+                                            <div class="option-icon">
+                                                <i class="fas fa-ruble-sign"></i>
+                                            </div>
+                                            <span class="option-text">3000 ₽</span>
+                                        </div>
+                                        <div class="option-badge">11</div>
                                     </div>
-                                    <span class="option-text">5000 ₽</span>
                                 </div>
-                                <div class="option-badge">8</div>
-                            </div>
-                            <div class="filter-option" data-filter="deposit" data-value="10000">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-ruble-sign"></i>
-                                    </div>
-                                    <span class="option-text">10000 ₽</span>
-                                </div>
-                                <div class="option-badge">6</div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <div class="group-header">
-                            <h4><i class="fas fa-gamepad"></i> Тип игр</h4>
-                            <span class="selected-count" id="gamesCount">1</span>
-                        </div>
-                        <div class="filter-options">
-                            <div class="filter-option active" data-filter="game" data-value="slots">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-sliders-h"></i>
-                                    </div>
-                                    <span class="option-text">Слоты</span>
-                                </div>
-                                <div class="option-badge">18</div>
+                        
+                        <!-- Шаг 3: Тип игр -->
+                        <div class="filter-step" data-step="3">
+                            <div class="filter-step-header">
+                                <h4><i class="fas fa-gamepad"></i> Игры</h4>
+                                <div class="step-number">3</div>
                             </div>
-                            <div class="filter-option" data-filter="game" data-value="live">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-video"></i>
+                            <div class="filter-step-content">
+                                <div class="filter-options">
+                                    <div class="filter-option active" data-filter="game" data-value="slots">
+                                        <div class="option-left">
+                                            <div class="option-icon">
+                                                <i class="fas fa-sliders-h"></i>
+                                            </div>
+                                            <span class="option-text">Слоты</span>
+                                        </div>
+                                        <div class="option-badge">18</div>
                                     </div>
-                                    <span class="option-text">Live</span>
-                                </div>
-                                <div class="option-badge">9</div>
-                            </div>
-                            <div class="filter-option" data-filter="game" data-value="crash">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-chart-line"></i>
+                                    <div class="filter-option" data-filter="game" data-value="live">
+                                        <div class="option-left">
+                                            <div class="option-icon">
+                                                <i class="fas fa-video"></i>
+                                            </div>
+                                            <span class="option-text">Live</span>
+                                        </div>
+                                        <div class="option-badge">9</div>
                                     </div>
-                                    <span class="option-text">Crash</span>
-                                </div>
-                                <div class="option-badge">5</div>
-                            </div>
-                            <div class="filter-option" data-filter="game" data-value="roulette">
-                                <div class="option-left">
-                                    <div class="option-icon">
-                                        <i class="fas fa-circle"></i>
+                                    <div class="filter-option" data-filter="game" data-value="roulette">
+                                        <div class="option-left">
+                                            <div class="option-icon">
+                                                <i class="fas fa-circle"></i>
+                                            </div>
+                                            <span class="option-text">Рулетка</span>
+                                        </div>
+                                        <div class="option-badge">7</div>
                                     </div>
-                                    <span class="option-text">Рулетка</span>
                                 </div>
-                                <div class="option-badge">7</div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="filter-actions">
                         <button class="btn btn-primary" id="applyFilters">
-                            <i class="fas fa-filter"></i> Применить фильтры
+                            <i class="fas fa-filter"></i> Показать
                         </button>
                         <button class="btn btn-secondary btn-small" id="autoSelect">
                             <i class="fas fa-robot"></i> Автоподбор
+                        </button>
+                        <button class="btn btn-secondary btn-small" id="resetFilters">
+                            <i class="fas fa-redo"></i> Сбросить
                         </button>
                     </div>
                 </div>
@@ -1408,8 +1821,8 @@
                 <!-- Сетка карточек -->
                 <div>
                     <div class="results-header">
-                        <h3>Подобранные предложения</h3>
-                        <div class="results-count">Найдено: <span id="resultsCount">3</span> бонусов</div>
+                        <h3>Предложения</h3>
+                        <div class="results-count">Найдено: <span id="resultsCount">3</span></div>
                     </div>
                     
                     <div class="bonuses-grid" id="bonusesGrid">
@@ -1430,9 +1843,9 @@
                         <span id="modalCasinoName">LuxSpin Casino</span>
                     </div>
                     <div class="modal-badge-row">
-                        <div class="modal-badge" id="modalBadge">Персональный бонус</div>
+                        <div class="modal-badge" id="modalBadge">Персональный</div>
                         <div class="modal-updated">
-                            <i class="fas fa-sync-alt"></i> <span id="modalUpdated">Обновлено сегодня</span>
+                            <i class="fas fa-sync-alt"></i> <span id="modalUpdated">Сегодня</span>
                         </div>
                     </div>
                 </div>
@@ -1442,7 +1855,6 @@
             </div>
             
             <div class="modal-content">
-                <!-- Упрощенная сетка 2 колонки -->
                 <div class="modal-grid">
                     <!-- Условия -->
                     <div class="modal-section">
@@ -1460,7 +1872,7 @@
                         </div>
                     </div>
                     
-                    <!-- Аналитика -->
+                    <!-- Проверка -->
                     <div class="modal-section">
                         <h3><i class="fas fa-search"></i> Проверка</h3>
                         <div class="modal-analytics" id="modalAnalytics">
@@ -1468,17 +1880,15 @@
                         </div>
                     </div>
                     
-                    <!-- Игры -->
+                    <!-- Игры и вейджер -->
                     <div class="modal-section">
                         <h3><i class="fas fa-gamepad"></i> Игры</h3>
                         <div class="modal-games" id="modalGames">
                             <!-- Игры будут добавлены динамически -->
                         </div>
-                        <div style="margin-top: 16px;">
-                            <h4 style="font-size: 0.9rem; color: var(--accent-aqua); margin-bottom: 8px;">
-                                <i class="fas fa-file-contract"></i> Вейджер
-                            </h4>
-                            <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5;" id="modalWager">
+                        <div class="modal-wager">
+                            <h4><i class="fas fa-file-contract"></i> Вейджер</h4>
+                            <p id="modalWager">
                                 <!-- Условия вейджера -->
                             </p>
                         </div>
@@ -1488,7 +1898,7 @@
                 <!-- Кнопки действий -->
                 <div class="modal-actions">
                     <button class="btn btn-primary modal-btn" id="modalGetBonus">
-                        <i class="fas fa-gift"></i> Получить бонус
+                        <i class="fas fa-gift"></i> Получить
                     </button>
                     <button class="btn btn-secondary modal-btn" onclick="closeModal()">
                         <i class="fas fa-times"></i> Закрыть
@@ -1506,15 +1916,14 @@
                 casino: "LuxSpin Casino",
                 badge: "Персональный",
                 updated: "сегодня",
-                goal: ["max-bonus", "fast-payout", "no-verification"],
+                goal: ["max-bonus", "freespins", "no-deposit"],
                 deposit: [500, 1000, 3000],
                 games: ["slots", "live"],
                 conditions: [
                     "Бонус 450% до 25 000 ₽",
                     "Фриспины 220 FS",
                     "Вывод от 5 минут",
-                    "Верификация не требуется",
-                    "Лимиты без ограничений"
+                    "Без верификации"
                 ],
                 params: {
                     rtp: "96.4%",
@@ -1523,8 +1932,8 @@
                     wager: "х10"
                 },
                 details: {
-                    games: ["Book of Dead", "Sweet Bonanza", "Gates of Olympus", "Starburst"],
-                    wagerDetails: "Вейджер х10 только на сумму бонуса. Срок: 7 дней.",
+                    games: ["Book of Dead", "Sweet Bonanza", "Gates of Olympus"],
+                    wagerDetails: "Вейджер х10 на сумму бонуса. Срок: 7 дней.",
                     payoutSpeed: "5-7 минут",
                     verification: "Не требуется",
                     winProbability: "Высокая"
@@ -1542,7 +1951,6 @@
                     "Бонус 200% + 150 FS",
                     "Вывод от 3 минут",
                     "Без верификации",
-                    "Безлимитные выплаты",
                     "Кэшбэк 5%"
                 ],
                 params: {
@@ -1564,15 +1972,14 @@
                 casino: "Crypto Palace",
                 badge: "Крипто",
                 updated: "2 дня назад",
-                goal: ["fast-payout", "no-verification"],
+                goal: ["max-bonus", "no-verification"],
                 deposit: [1000, 5000, 10000],
-                games: ["slots", "crash", "roulette"],
+                games: ["slots", "roulette"],
                 conditions: [
                     "Бонус 300% до 50 000 ₽",
                     "Вывод от 2 минут",
                     "Криптовалюты",
-                    "Анонимная игра",
-                    "Без лимитов"
+                    "Анонимная игра"
                 ],
                 params: {
                     rtp: "96.8%",
@@ -1581,7 +1988,7 @@
                     wager: "х12"
                 },
                 details: {
-                    games: ["Crash", "Plinko", "Roulette", "Blackjack"],
+                    games: ["Crash", "Roulette", "Blackjack"],
                     wagerDetails: "Вейджер х12 на бонус. Крипто: без вейджера.",
                     payoutSpeed: "2-3 минуты",
                     verification: "Анонимно",
@@ -1599,31 +2006,39 @@
 
         // Текущий выбранный бонус для модального окна
         let currentBonusId = null;
+        // Текущий активный шаг фильтров
+        let currentStep = 1;
 
         // Инициализация
         document.addEventListener('DOMContentLoaded', function() {
             initializeFilters();
             renderBonuses();
             updateFilterCounts();
+            setupStepNavigation();
             
-            // Закрытие модального окна по клику на оверлей
+            // Переключение фильтров на мобильных
+            const filterToggle = document.getElementById('filterToggle');
+            const filterSidebar = document.getElementById('filterSidebar');
+            
+            filterToggle.addEventListener('click', function() {
+                filterSidebar.classList.toggle('collapsed');
+                filterToggle.classList.toggle('active');
+            });
+            
+            // Закрытие модального окна
             document.getElementById('detailsModal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeModal();
                 }
             });
             
-            // Закрытие модального окна по Esc
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeModal();
                 }
             });
             
-            // Кнопка закрытия модального окна
             document.getElementById('closeModal').addEventListener('click', closeModal);
-            
-            // Кнопка получения бонуса в модальном окне
             document.getElementById('modalGetBonus').addEventListener('click', function() {
                 if (currentBonusId) {
                     getBonus(currentBonusId);
@@ -1640,13 +2055,63 @@
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 20,
+                            top: targetElement.offsetTop - 10,
                             behavior: 'smooth'
                         });
+                        
+                        // На мобильных открываем фильтры после скролла
+                        if (window.innerWidth <= 1024 && targetId === '#constructor') {
+                            setTimeout(() => {
+                                filterSidebar.classList.remove('collapsed');
+                                filterToggle.classList.add('active');
+                            }, 500);
+                        }
                     }
                 });
             });
+            
+            // Адаптивная высота модального окна
+            function adjustModalHeight() {
+                if (window.innerWidth <= 768) {
+                    const modalOverlay = document.getElementById('detailsModal');
+                    const modalContainer = modalOverlay.querySelector('.modal-container');
+                    const viewportHeight = window.innerHeight;
+                    
+                    if (modalContainer) {
+                        modalContainer.style.maxHeight = (viewportHeight - 20) + 'px';
+                        modalContainer.style.overflowY = 'auto';
+                    }
+                }
+            }
+            
+            window.addEventListener('resize', adjustModalHeight);
         });
+
+        // Настройка шаговой навигации
+        function setupStepNavigation() {
+            const stepHeaders = document.querySelectorAll('.filter-step-header');
+            
+            stepHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const step = this.closest('.filter-step');
+                    const stepNumber = parseInt(step.dataset.step);
+                    
+                    // Активируем только если это текущий или предыдущий шаг
+                    if (stepNumber <= currentStep + 1) {
+                        // Деактивируем все шаги
+                        document.querySelectorAll('.filter-step').forEach(s => {
+                            s.classList.remove('active');
+                        });
+                        
+                        // Активируем выбранный шаг
+                        step.classList.add('active');
+                        
+                        // Обновляем текущий шаг
+                        currentStep = stepNumber;
+                    }
+                });
+            });
+        }
 
         // Инициализация фильтров
         function initializeFilters() {
@@ -1658,11 +2123,28 @@
                     
                     // Для депозита и игр - только один активный
                     if (filterType === 'deposit' || filterType === 'game') {
-                        document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(opt => {
+                        const step = this.closest('.filter-step');
+                        const stepNumber = parseInt(step.dataset.step);
+                        
+                        // Деактивируем все опции в этом шаге
+                        step.querySelectorAll(`[data-filter="${filterType}"]`).forEach(opt => {
                             opt.classList.remove('active');
                         });
+                        
+                        // Активируем выбранную опцию
                         this.classList.add('active');
                         currentFilters[filterType] = filterValue;
+                        
+                        // Переходим к следующему шагу, если это не последний
+                        if (stepNumber < 3) {
+                            step.classList.remove('active');
+                            const nextStep = document.querySelector(`[data-step="${stepNumber + 1}"]`);
+                            if (nextStep) {
+                                nextStep.classList.add('active');
+                                currentStep = stepNumber + 1;
+                            }
+                        }
+                        
                         updateFilterCounts();
                     } 
                     // Для цели - multiple выбор
@@ -1677,6 +2159,12 @@
             // Кнопка применения фильтров
             document.getElementById('applyFilters').addEventListener('click', function() {
                 renderBonuses();
+                
+                // На мобильных закрываем фильтры после применения
+                if (window.innerWidth <= 1024) {
+                    document.getElementById('filterSidebar').classList.add('collapsed');
+                    document.getElementById('filterToggle').classList.remove('active');
+                }
             });
             
             // Кнопка сброса фильтров
@@ -1697,6 +2185,13 @@
             document.querySelector('[data-filter="deposit"][data-value="1000"]').classList.add('active');
             document.querySelector('[data-filter="game"][data-value="slots"]').classList.add('active');
             
+            // Сбросить шаги
+            document.querySelectorAll('.filter-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.querySelector('[data-step="1"]').classList.add('active');
+            currentStep = 1;
+            
             currentFilters = {
                 goal: [],
                 deposit: 1000,
@@ -1710,16 +2205,16 @@
         // Автоподбор фильтров
         function autoSelectFilters() {
             // Случайный подбор фильтров
-            const goals = ['max-bonus', 'freespins', 'no-deposit', 'fast-payout', 'no-verification'];
-            const deposits = [500, 1000, 3000, 5000, 10000];
-            const games = ['slots', 'live', 'crash', 'roulette'];
+            const goals = ['max-bonus', 'freespins', 'no-deposit'];
+            const deposits = [500, 1000, 3000];
+            const games = ['slots', 'live', 'roulette'];
             
             // Сбросить текущие
             resetFilters();
             
-            // Случайно выбрать цели (1-3)
+            // Случайно выбрать цели (1-2)
             const selectedGoals = [];
-            const numGoals = Math.floor(Math.random() * 3) + 1;
+            const numGoals = Math.floor(Math.random() * 2) + 1;
             for (let i = 0; i < numGoals; i++) {
                 const randomGoal = goals[Math.floor(Math.random() * goals.length)];
                 if (!selectedGoals.includes(randomGoal)) {
@@ -1737,22 +2232,35 @@
             
             // Случайный депозит
             const randomDeposit = deposits[Math.floor(Math.random() * deposits.length)];
-            document.querySelectorAll('[data-filter="deposit"]').forEach(opt => {
+            document.querySelectorAll('[data-step="2"] [data-filter="deposit"]').forEach(opt => {
                 opt.classList.remove('active');
             });
-            document.querySelector(`[data-filter="deposit"][data-value="${randomDeposit}"]`).classList.add('active');
+            const depositElement = document.querySelector(`[data-filter="deposit"][data-value="${randomDeposit}"]`);
+            if (depositElement) {
+                depositElement.classList.add('active');
+            }
             
             // Случайная игра
             const randomGame = games[Math.floor(Math.random() * games.length)];
-            document.querySelectorAll('[data-filter="game"]').forEach(opt => {
+            document.querySelectorAll('[data-step="3"] [data-filter="game"]').forEach(opt => {
                 opt.classList.remove('active');
             });
-            document.querySelector(`[data-filter="game"][data-value="${randomGame}"]`).classList.add('active');
+            const gameElement = document.querySelector(`[data-filter="game"][data-value="${randomGame}"]`);
+            if (gameElement) {
+                gameElement.classList.add('active');
+            }
             
             // Обновить фильтры
             updateGoalFilter();
             currentFilters.deposit = randomDeposit;
             currentFilters.game = randomGame;
+            
+            // Перейти к последнему шагу
+            document.querySelectorAll('.filter-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.querySelector('[data-step="3"]').classList.add('active');
+            currentStep = 3;
             
             updateFilterCounts();
             renderBonuses();
@@ -1761,12 +2269,35 @@
         // Обновление счетчиков фильтров
         function updateFilterCounts() {
             const goalsCount = document.querySelectorAll('[data-filter="goal"].active').length;
-            const depositCount = document.querySelectorAll('[data-filter="deposit"].active').length;
-            const gamesCount = document.querySelectorAll('[data-filter="game"].active').length;
             
-            document.getElementById('goalsCount').textContent = goalsCount;
-            document.getElementById('depositCount').textContent = depositCount;
-            document.getElementById('gamesCount').textContent = gamesCount;
+            // Показываем счетчики в заголовках шагов
+            document.querySelectorAll('.filter-step').forEach(step => {
+                const stepNumber = step.dataset.step;
+                const countElement = step.querySelector('.selected-count') || 
+                                   step.querySelector('.step-number');
+                
+                if (stepNumber === '1') {
+                    if (goalsCount > 0) {
+                        if (!step.querySelector('.selected-count')) {
+                            const stepNum = step.querySelector('.step-number');
+                            const selectedCount = document.createElement('span');
+                            selectedCount.className = 'selected-count';
+                            selectedCount.textContent = goalsCount;
+                            step.querySelector('.filter-step-header').appendChild(selectedCount);
+                            stepNum.style.display = 'none';
+                        } else {
+                            step.querySelector('.selected-count').textContent = goalsCount;
+                        }
+                    } else {
+                        const selectedCount = step.querySelector('.selected-count');
+                        const stepNum = step.querySelector('.step-number');
+                        if (selectedCount) {
+                            selectedCount.remove();
+                            stepNum.style.display = 'flex';
+                        }
+                    }
+                }
+            });
         }
 
         // Обновление фильтра цели
@@ -1813,10 +2344,10 @@
                 grid.innerHTML = `
                     <div class="no-results">
                         <i class="fas fa-search"></i>
-                        <h3>По вашим критериям ничего не найдено</h3>
-                        <p>Попробуйте изменить параметры фильтрации или выберите другие значения</p>
-                        <button class="btn btn-secondary" style="margin-top: 20px;" onclick="resetFilters()">
-                            <i class="fas fa-redo"></i> Сбросить фильтры
+                        <h3>Ничего не найдено</h3>
+                        <p>Измените параметры фильтрации</p>
+                        <button class="btn btn-secondary" style="margin-top: 16px;" onclick="resetFilters()">
+                            <i class="fas fa-redo"></i> Сбросить
                         </button>
                     </div>
                 `;
@@ -1834,13 +2365,13 @@
                             <div class="bonus-badge">${bonus.badge}</div>
                         </div>
                         <div class="bonus-updated">
-                            <i class="fas fa-sync-alt"></i> Обновлено ${bonus.updated}
+                            <i class="fas fa-sync-alt"></i> ${bonus.updated}
                         </div>
                     </div>
                     
                     <div class="bonus-content">
                         <div class="bonus-conditions">
-                            <h4><i class="fas fa-list-check"></i> Основные условия</h4>
+                            <h4><i class="fas fa-list-check"></i> Условия</h4>
                             <div class="conditions-grid">
                                 ${bonus.conditions.map(condition => `
                                     <div class="condition">
@@ -1854,7 +2385,7 @@
                     
                     <div class="bonus-actions">
                         <a href="#" class="btn btn-primary btn-bonus" onclick="getBonus(${bonus.id})">
-                            <i class="fas fa-gift"></i> Получить бонус
+                            <i class="fas fa-gift"></i> Получить
                         </a>
                         <button class="btn btn-secondary btn-bonus" onclick="openDetailsModal(${bonus.id})">
                             <i class="fas fa-info-circle"></i> Подробнее
@@ -1864,7 +2395,7 @@
             `).join('');
         }
 
-        // Открытие модального окна с деталями (упрощенное)
+        // Открытие модального окна с деталями
         function openDetailsModal(bonusId) {
             const bonus = bonusesData.find(b => b.id === bonusId);
             if (!bonus) return;
@@ -1875,7 +2406,7 @@
             document.getElementById('modalCasinoIcon').textContent = bonus.casino.charAt(0);
             document.getElementById('modalCasinoName').textContent = bonus.casino;
             document.getElementById('modalBadge').textContent = bonus.badge;
-            document.getElementById('modalUpdated').textContent = `Обновлено ${bonus.updated}`;
+            document.getElementById('modalUpdated').textContent = bonus.updated;
             
             // Условия
             const conditionsContainer = document.getElementById('modalConditions');
@@ -1950,23 +2481,50 @@
             document.getElementById('modalWager').textContent = bonus.details.wagerDetails;
             
             // Показать модальное окно
-            document.getElementById('detailsModal').classList.add('active');
+            const modal = document.getElementById('detailsModal');
+            modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            // На мобильных делаем модальное окно на весь экран
+            if (window.innerWidth <= 768) {
+                modal.style.alignItems = 'flex-start';
+                modal.style.padding = '0';
+                
+                const modalContainer = modal.querySelector('.modal-container');
+                modalContainer.style.margin = '0';
+                modalContainer.style.borderRadius = '0';
+                modalContainer.style.minHeight = '100vh';
+                modalContainer.style.maxHeight = '100vh';
+                modalContainer.style.overflowY = 'auto';
+            }
         }
 
         // Закрытие модального окна
         function closeModal() {
-            document.getElementById('detailsModal').classList.remove('active');
+            const modal = document.getElementById('detailsModal');
+            modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             currentBonusId = null;
+            
+            // Восстанавливаем стили модального окна
+            modal.style.alignItems = '';
+            modal.style.padding = '';
+            
+            const modalContainer = modal.querySelector('.modal-container');
+            if (modalContainer) {
+                modalContainer.style.margin = '';
+                modalContainer.style.borderRadius = '';
+                modalContainer.style.minHeight = '';
+                modalContainer.style.maxHeight = '';
+                modalContainer.style.overflowY = '';
+            }
         }
 
         // Получить бонус
         function getBonus(bonusId) {
             const bonus = bonusesData.find(b => b.id === bonusId);
             if (bonus) {
-                alert(`Перенаправляем на получение бонуса ${bonus.casino}...\n\nЭто эксклюзивное предложение доступно только нашим клиентам.`);
-                // В реальном проекте здесь был бы редирект
+                alert(`Переходим к получению бонуса ${bonus.casino}...`);
             }
         }
 
