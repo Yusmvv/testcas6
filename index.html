@@ -16,6 +16,8 @@
             --accent-aqua: #3DFFCE;
             --accent-purple: #9C4BFF;
             --accent-blue: #4A6FFF;
+            --accent-pink: #FF4BC8;
+            --accent-orange: #FF8B4A;
             --border-color: rgba(255, 255, 255, 0.08);
             --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
             --transition: all 0.2s ease;
@@ -63,7 +65,208 @@
             }
         }
 
-        /* Хедер для мобильных */
+        /* Улучшенный главный экран */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(19, 22, 29, 0.8) 0%, rgba(11, 13, 17, 0.9) 100%);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-lime), var(--accent-aqua));
+            color: var(--bg-dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #FFFFFF, var(--accent-aqua));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+                margin-bottom: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 24px;
+            }
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                gap: 24px;
+                margin-bottom: 24px;
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-lime);
+            margin-bottom: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .stat-value {
+                font-size: 1.5rem;
+            }
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 480px) {
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Улучшенная кнопка "К выбору бонусов" */
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: #CCFF00;
+            color: var(--bg-dark);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 18px 36px;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 20px rgba(204, 255, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(204, 255, 0, 0.4);
+            background-color: #CCFF00;
+        }
+
+        .hero-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .hero-btn i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-btn {
+                font-size: 1rem;
+                padding: 16px 32px;
+            }
+            
+            .hero-btn i {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-btn {
+                width: 100%;
+                max-width: 320px;
+                font-size: 1.05rem;
+                padding: 18px 24px;
+            }
+        }
+
+        /* Эффект свечения для кнопки */
+        .hero-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .hero-btn:hover::after {
+            transform: translateX(100%);
+        }
+
+        /* Мобильный хедер */
         .mobile-header {
             display: none;
             position: sticky;
@@ -121,47 +324,18 @@
             transform: scale(0.95);
         }
 
-        /* Hero секция (только для десктопа) */
-        .hero {
-            padding: 60px 0 40px;
-            text-align: center;
-        }
-
-        @media (max-width: 1024px) {
-            .hero {
-                display: none;
-            }
-        }
-
-        .hero h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 16px;
-            background: linear-gradient(90deg, var(--accent-lime), var(--accent-aqua));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-subtitle {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 24px;
-        }
-
         /* Основной контент */
         .main-content {
-            padding: 20px 0 40px;
+            padding: 20px 0 60px;
         }
 
         @media (max-width: 768px) {
             .main-content {
-                padding: 16px 0 32px;
+                padding: 16px 0 40px;
             }
         }
 
-        /* Фильтры - новая компактная версия */
+        /* Фильтры - всегда открыты по умолчанию */
         .filters-compact {
             background: var(--bg-card);
             border-radius: var(--border-radius);
@@ -177,6 +351,7 @@
             padding: 16px;
             cursor: pointer;
             user-select: none;
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .filters-header h2 {
@@ -202,27 +377,34 @@
         }
 
         .filters-body {
-            display: none;
             padding: 0 16px 16px;
             border-top: 1px solid var(--border-color);
+            display: block !important;
         }
 
-        .filters-compact.active .filters-body {
-            display: block;
+        .filters-compact.collapsed .filters-body {
+            display: none !important;
         }
 
-        /* Шаги фильтров */
+        /* Шаги фильтров - более четкое выделение */
         .filter-steps {
             display: flex;
             flex-direction: column;
             gap: 16px;
+            margin-top: 16px;
         }
 
         .filter-step {
             background: rgba(255, 255, 255, 0.03);
             border-radius: var(--border-radius-sm);
             border: 1px solid var(--border-color);
-            padding: 12px;
+            padding: 16px 16px 16px 16px;
+            position: relative;
+        }
+
+        .filter-step.active {
+            border-color: var(--accent-lime);
+            background: rgba(204, 255, 0, 0.05);
         }
 
         .step-header {
@@ -235,7 +417,7 @@
 
         .step-header h3 {
             font-size: 0.95rem;
-            font-weight: 500;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -248,33 +430,46 @@
         }
 
         .step-indicator {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
             color: var(--text-secondary);
             flex-shrink: 0;
+            border: 2px solid transparent;
         }
 
         .filter-step.active .step-indicator {
             background: var(--accent-lime);
             color: var(--bg-dark);
+            border-color: var(--accent-lime);
+        }
+
+        /* Явная маркировка шагов */
+        .step-label {
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            background: var(--accent-lime);
+            color: var(--bg-dark);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .step-content {
-            display: none;
-        }
-
-        .filter-step.active .step-content {
             display: block;
         }
 
-        /* Опции фильтров в компактном виде */
+        /* Опции фильтров */
         .filter-options-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -354,7 +549,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            margin-top: 16px;
+            margin-top: 20px;
         }
 
         @media (max-width: 480px) {
@@ -383,9 +578,15 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent-lime), var(--accent-purple));
+            background-color: #CCFF00;
             color: var(--bg-dark);
-            box-shadow: 0 4px 15px rgba(156, 75, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(204, 255, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #CCFF00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(204, 255, 0, 0.4);
         }
 
         .btn-secondary {
@@ -394,7 +595,7 @@
             color: var(--text-primary);
         }
 
-        /* Баннер активных фильтров */
+        /* Активные фильтры */
         .active-filters-bar {
             display: flex;
             align-items: center;
@@ -435,7 +636,7 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Карточки бонусов */
+        /* Карточки бонусов - разные цвета бейджей */
         .bonuses-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -457,11 +658,58 @@
             transition: var(--transition);
             display: flex;
             flex-direction: column;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .bonus-card:hover {
+            border-color: var(--accent-lime);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
 
         .bonus-card:active {
             transform: translateY(-2px);
-            border-color: var(--accent-lime);
+        }
+
+        .bonus-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(204, 255, 0, 0.05), rgba(156, 75, 255, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .bonus-card:hover::after {
+            opacity: 1;
+        }
+
+        .card-click-indicator {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-lime);
+            font-size: 10px;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .bonus-card:hover .card-click-indicator {
+            opacity: 1;
+            transform: scale(1.1);
         }
 
         .bonus-card-header {
@@ -471,6 +719,8 @@
             align-items: center;
             justify-content: space-between;
             gap: 12px;
+            position: relative;
+            z-index: 2;
         }
 
         .casino-info {
@@ -508,14 +758,33 @@
             text-overflow: ellipsis;
         }
 
+        /* Разные цвета для бейджей */
         .casino-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--accent-lime), var(--accent-aqua));
-            color: var(--bg-dark);
             padding: 3px 8px;
             border-radius: 12px;
             font-size: 0.7rem;
             font-weight: 700;
+        }
+
+        .badge-personal {
+            background: linear-gradient(135deg, var(--accent-lime), var(--accent-aqua));
+            color: var(--bg-dark);
+        }
+
+        .badge-exclusive {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            color: white;
+        }
+
+        .badge-crypto {
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+            color: white;
+        }
+
+        .badge-premium {
+            background: linear-gradient(135deg, var(--accent-aqua), var(--accent-blue));
+            color: var(--bg-dark);
         }
 
         .bonus-status {
@@ -533,6 +802,8 @@
         .bonus-content {
             padding: 16px;
             flex: 1;
+            position: relative;
+            z-index: 2;
         }
 
         .bonus-features {
@@ -555,6 +826,12 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: var(--transition);
+        }
+
+        .bonus-card:hover .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(4px);
         }
 
         .feature-icon {
@@ -568,12 +845,23 @@
             color: var(--accent-aqua);
             font-size: 12px;
             flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .bonus-card:hover .feature-icon {
+            background: rgba(61, 255, 206, 0.2);
+            transform: scale(1.1);
         }
 
         .feature-text {
             font-size: 0.85rem;
             font-weight: 500;
             line-height: 1.3;
+            transition: var(--transition);
+        }
+
+        .bonus-card:hover .feature-text {
+            color: var(--accent-lime);
         }
 
         .bonus-actions {
@@ -581,6 +869,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 10px;
             padding: 0 16px 16px;
+            position: relative;
+            z-index: 2;
         }
 
         @media (max-width: 480px) {
@@ -601,6 +891,8 @@
             cursor: pointer;
             transition: var(--transition);
             border: none;
+            position: relative;
+            z-index: 3;
         }
 
         .action-btn:active {
@@ -608,8 +900,14 @@
         }
 
         .action-btn-primary {
-            background: linear-gradient(135deg, var(--accent-lime), var(--accent-purple));
+            background-color: #CCFF00;
             color: var(--bg-dark);
+        }
+
+        .action-btn-primary:hover {
+            background-color: #CCFF00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(204, 255, 0, 0.4);
         }
 
         .action-btn-secondary {
@@ -637,27 +935,6 @@
 
         .results-count span {
             color: var(--accent-lime);
-        }
-
-        .sort-control {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sort-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .sort-select {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 8px 12px;
-            color: var(--text-primary);
-            font-size: 0.85rem;
-            cursor: pointer;
         }
 
         /* Кнопка быстрого действия */
@@ -692,7 +969,7 @@
             box-shadow: 0 4px 15px rgba(156, 75, 255, 0.4);
         }
 
-        /* Улучшенное модальное окно */
+        /* Модальное окно */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -780,12 +1057,25 @@
         }
 
         .modal-badge {
-            background: linear-gradient(135deg, var(--accent-lime), var(--accent-aqua));
-            color: var(--bg-dark);
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 700;
+        }
+
+        .modal-badge.personal {
+            background: linear-gradient(135deg, var(--accent-lime), var(--accent-aqua));
+            color: var(--bg-dark);
+        }
+
+        .modal-badge.exclusive {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            color: white;
+        }
+
+        .modal-badge.crypto {
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+            color: white;
         }
 
         .modal-updated {
@@ -906,10 +1196,22 @@
             }
         }
 
+        .modal-actions .btn-primary {
+            background-color: #CCFF00;
+            color: var(--bg-dark);
+        }
+
+        .modal-actions .btn-primary:hover {
+            background-color: #CCFF00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(204, 255, 0, 0.4);
+        }
+
         /* Состояние "нет результатов" */
         .no-results {
             text-align: center;
             padding: 40px 20px;
+            grid-column: 1 / -1;
         }
 
         .no-results-icon {
@@ -951,6 +1253,38 @@
     </style>
 </head>
 <body>
+    <!-- Улучшенный главный экран -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Эксклюзивные предложения</div>
+                <h1 class="hero-title">Персональные бонусы для умных игроков</h1>
+                <p class="hero-subtitle">Мы анализируем весь рынок и подбираем проверенные предложения, которые реально работают и приносят прибыль</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">150+</span>
+                        <span class="stat-label">Казино в базе</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">24ч</span>
+                        <span class="stat-label">Обновление данных</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">95%</span>
+                        <span class="stat-label">Успешных выплат</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#constructor" class="hero-btn">
+                        <i class="fas fa-gift"></i> К выбору бонусов
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Мобильный хедер -->
     <header class="mobile-header">
         <div class="container">
@@ -960,31 +1294,20 @@
                     <button class="mobile-btn" id="filterToggleBtn">
                         <i class="fas fa-filter"></i>
                     </button>
-                    <button class="mobile-btn" id="sortToggleBtn">
-                        <i class="fas fa-sort-amount-down"></i>
-                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero секция (только для десктопа) -->
-    <section class="hero">
-        <div class="container">
-            <h1>Лучшие бонусы под вашу игру</h1>
-            <p class="hero-subtitle">Эксклюзивные предложения, проверенные вручную</p>
-        </div>
-    </section>
-
     <!-- Основной контент -->
-    <main class="main-content">
+    <main class="main-content" id="constructor">
         <div class="container">
-            <!-- Компактные фильтры -->
+            <!-- Компактные фильтры - всегда открыты по умолчанию -->
             <div class="filters-compact" id="filtersCompact">
-                <div class="filters-header">
+                <div class="filters-header" id="filtersHeader">
                     <h2><i class="fas fa-sliders-h"></i> Настройте подбор</h2>
                     <div class="filters-toggle" id="filtersToggle">
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-up"></i>
                     </div>
                 </div>
                 
@@ -992,6 +1315,7 @@
                     <div class="filter-steps">
                         <!-- Шаг 1: Тип бонуса -->
                         <div class="filter-step active" data-step="1">
+                            <div class="step-label">Шаг 1</div>
                             <div class="step-header">
                                 <h3><i class="fas fa-gift"></i> Что хотите?</h3>
                                 <div class="step-indicator">1</div>
@@ -1010,7 +1334,7 @@
                                     </div>
                                     <div class="filter-option-btn" data-filter="goal" data-value="no-deposit">
                                         <div class="option-icon"><i class="fas fa-gift"></i></div>
-                                        <div class="option-text">Бездеп</div>
+                                        <div class="option-text">Без депозита</div>
                                         <div class="option-count">5</div>
                                     </div>
                                     <div class="filter-option-btn" data-filter="goal" data-value="fast-payout">
@@ -1023,7 +1347,8 @@
                         </div>
                         
                         <!-- Шаг 2: Депозит -->
-                        <div class="filter-step" data-step="2">
+                        <div class="filter-step active" data-step="2">
+                            <div class="step-label">Шаг 2</div>
                             <div class="step-header">
                                 <h3><i class="fas fa-wallet"></i> Ваш депозит</h3>
                                 <div class="step-indicator">2</div>
@@ -1055,7 +1380,8 @@
                         </div>
                         
                         <!-- Шаг 3: Игры -->
-                        <div class="filter-step" data-step="3">
+                        <div class="filter-step active" data-step="3">
+                            <div class="step-label">Шаг 3</div>
                             <div class="step-header">
                                 <h3><i class="fas fa-gamepad"></i> Во что играете?</h3>
                                 <div class="step-indicator">3</div>
@@ -1103,17 +1429,9 @@
                 <!-- Фильтры будут добавлены динамически -->
             </div>
 
-            <!-- Статистика и сортировка -->
+            <!-- Статистика результатов -->
             <div class="results-stats">
                 <div class="results-count">Найдено: <span id="resultsCount">3</span> бонусов</div>
-                <div class="sort-control">
-                    <span class="sort-label">Сортировать:</span>
-                    <select class="sort-select" id="sortSelect">
-                        <option value="relevance">По релевантности</option>
-                        <option value="bonus">По размеру бонуса</option>
-                        <option value="payout">По скорости выплат</option>
-                    </select>
-                </div>
             </div>
 
             <!-- Сетка бонусов -->
@@ -1136,7 +1454,7 @@
                 <div class="modal-header-info">
                     <div class="modal-title" id="modalCasinoName">LuxSpin Casino</div>
                     <div class="modal-subtitle">
-                        <div class="modal-badge" id="modalBadge">Персональный</div>
+                        <div class="modal-badge personal" id="modalBadge">Персональный</div>
                         <div class="modal-updated" id="modalUpdated">Сегодня</div>
                     </div>
                 </div>
@@ -1180,12 +1498,12 @@
     </div>
 
     <script>
-        // Упрощенные данные бонусов
+        // Упрощенные данные бонусов с разными бейджами
         const bonusesData = [
             {
                 id: 1,
                 casino: "LuxSpin Casino",
-                badge: "Персональный",
+                badge: {text: "Персональный", type: "personal"},
                 updated: "сегодня",
                 goal: ["max-bonus", "freespins", "no-deposit"],
                 deposit: [500, 1000, 3000],
@@ -1215,7 +1533,7 @@
             {
                 id: 2,
                 casino: "Royal Fortune",
-                badge: "Эксклюзив",
+                badge: {text: "Эксклюзив", type: "exclusive"},
                 updated: "вчера",
                 goal: ["freespins", "no-deposit"],
                 deposit: [1000, 3000, 5000],
@@ -1245,7 +1563,7 @@
             {
                 id: 3,
                 casino: "Crypto Palace",
-                badge: "Крипто",
+                badge: {text: "Крипто", type: "crypto"},
                 updated: "2 дня назад",
                 goal: ["max-bonus", "fast-payout"],
                 deposit: [1000, 5000, 10000],
@@ -1271,6 +1589,96 @@
                         "Анонимная игра"
                     ]
                 }
+            },
+            {
+                id: 4,
+                casino: "Premium Club",
+                badge: {text: "Премиум", type: "premium"},
+                updated: "сегодня",
+                goal: ["max-bonus", "fast-payout", "no-deposit"],
+                deposit: [3000, 5000, 10000],
+                games: ["slots", "live", "roulette"],
+                features: [
+                    "500% до 100 000 ₽",
+                    "300 фриспинов",
+                    "Вывод от 1 мин",
+                    "VIP поддержка"
+                ],
+                params: {
+                    rtp: "97.5%",
+                    autopayout: "98%",
+                    mindeposit: "3000 ₽",
+                    wager: "х8"
+                },
+                details: {
+                    games: ["Mega Moolah", "Book of Ra", "Lightning Roulette"],
+                    conditions: [
+                        "Бонус 500% до 100 000 ₽",
+                        "Фриспины 300 FS",
+                        "Вывод от 1 минуты",
+                        "VIP поддержка 24/7"
+                    ]
+                }
+            },
+            {
+                id: 5,
+                casino: "Spin Palace",
+                badge: {text: "Персональный", type: "personal"},
+                updated: "сегодня",
+                goal: ["freespins", "fast-payout"],
+                deposit: [500, 1000],
+                games: ["slots", "crash"],
+                features: [
+                    "100% + 50 FS",
+                    "Вывод от 10 мин",
+                    "Низкий вейджер",
+                    "Слоты недели"
+                ],
+                params: {
+                    rtp: "96.2%",
+                    autopayout: "90%",
+                    mindeposit: "500 ₽",
+                    wager: "х5"
+                },
+                details: {
+                    games: ["Starburst", "Gonzo's Quest", "Book of Dead"],
+                    conditions: [
+                        "Бонус 100% + 50 FS",
+                        "Вывод от 10 минут",
+                        "Низкий вейджер х5",
+                        "Слоты недели с повышенным RTP"
+                    ]
+                }
+            },
+            {
+                id: 6,
+                casino: "Live Casino",
+                badge: {text: "Эксклюзив", type: "exclusive"},
+                updated: "3 дня назад",
+                goal: ["max-bonus"],
+                deposit: [1000, 3000, 5000, 10000],
+                games: ["live", "roulette"],
+                features: [
+                    "200% до 50 000 ₽",
+                    "Live игры бонус",
+                    "Крупье 24/7",
+                    "Быстрые ставки"
+                ],
+                params: {
+                    rtp: "98.1%",
+                    autopayout: "93%",
+                    mindeposit: "1000 ₽",
+                    wager: "х20"
+                },
+                details: {
+                    games: ["Live Roulette", "Live Blackjack", "Live Baccarat"],
+                    conditions: [
+                        "Бонус 200% до 50 000 ₽",
+                        "Эксклюзив для live игр",
+                        "Профессиональные крупье",
+                        "Быстрые ставки в реальном времени"
+                    ]
+                }
             }
         ];
 
@@ -1287,22 +1695,18 @@
             initializeFilters();
             renderBonuses();
             updateActiveFiltersBar();
-            
-            // На мобильных сразу открываем фильтры
-            if (window.innerWidth <= 768) {
-                document.getElementById('filtersCompact').classList.add('active');
-            }
         });
 
         // Инициализация UI
         function initializeUI() {
-            // Переключение фильтров
+            // Переключение фильтров по клику на заголовок
+            const filtersHeader = document.getElementById('filtersHeader');
             const filtersToggle = document.getElementById('filtersToggle');
             const filtersCompact = document.getElementById('filtersCompact');
             
-            filtersToggle.addEventListener('click', function() {
-                filtersCompact.classList.toggle('active');
-                this.classList.toggle('active');
+            filtersHeader.addEventListener('click', function() {
+                filtersCompact.classList.toggle('collapsed');
+                filtersToggle.classList.toggle('active');
             });
             
             // Переключение шагов фильтров
@@ -1315,21 +1719,16 @@
             
             // Кнопка фильтров в мобильном хедере
             document.getElementById('filterToggleBtn').addEventListener('click', function() {
-                filtersCompact.classList.toggle('active');
+                filtersCompact.classList.toggle('collapsed');
                 filtersToggle.classList.toggle('active');
                 scrollToFilters();
             });
             
             // Быстрая кнопка
             document.getElementById('quickFab').addEventListener('click', function() {
-                filtersCompact.classList.add('active');
+                filtersCompact.classList.remove('collapsed');
                 filtersToggle.classList.add('active');
                 scrollToFilters();
-            });
-            
-            // Сортировка
-            document.getElementById('sortSelect').addEventListener('change', function() {
-                renderBonuses();
             });
             
             // Модальное окно
@@ -1351,6 +1750,23 @@
                     getBonus(window.currentBonusId);
                 }
             });
+            
+            // Плавная прокрутка
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         }
 
         // Прокрутка к фильтрам
@@ -1363,7 +1779,9 @@
         function initializeFilters() {
             // Обработчики для кнопок фильтров
             document.querySelectorAll('.filter-option-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Предотвращаем всплытие
+                    
                     const filterType = this.dataset.filter;
                     const filterValue = this.dataset.value;
                     
@@ -1375,25 +1793,23 @@
                         });
                         this.classList.add('active');
                         currentFilters[filterType] = filterValue;
+                        updateActiveFiltersBar();
+                        renderBonuses(); // Автоматически применяем фильтр
                     } 
                     // Для цели - multiple выбор
                     else if (filterType === 'goal') {
                         this.classList.toggle('active');
                         updateGoalFilter();
+                        updateActiveFiltersBar();
+                        renderBonuses(); // Автоматически применяем фильтр
                     }
-                    
-                    updateActiveFiltersBar();
                 });
             });
             
-            // Применить фильтры
+            // Применить фильтры (теперь скорее "обновить")
             document.getElementById('applyFilters').addEventListener('click', function() {
+                updateActiveFiltersBar();
                 renderBonuses();
-                // Закрываем фильтры на мобильных
-                if (window.innerWidth <= 768) {
-                    document.getElementById('filtersCompact').classList.remove('active');
-                    document.getElementById('filtersToggle').classList.remove('active');
-                }
             });
             
             // Сброс фильтров
@@ -1417,8 +1833,16 @@
             });
             
             // Установить значения по умолчанию
-            document.querySelector('[data-filter="deposit"][data-value="1000"]').classList.add('active');
-            document.querySelector('[data-filter="game"][data-value="slots"]').classList.add('active');
+            const depositDefault = document.querySelector('[data-filter="deposit"][data-value="1000"]');
+            const gameDefault = document.querySelector('[data-filter="game"][data-value="slots"]');
+            
+            if (depositDefault) depositDefault.classList.add('active');
+            if (gameDefault) gameDefault.classList.add('active');
+            
+            // Активировать все шаги
+            document.querySelectorAll('.filter-step').forEach(step => {
+                step.classList.add('active');
+            });
             
             currentFilters = {
                 goal: [],
@@ -1441,7 +1865,7 @@
                 switch(goal) {
                     case 'max-bonus': text = 'Макс. бонус'; break;
                     case 'freespins': text = 'Фриспины'; break;
-                    case 'no-deposit': text = 'Бездеп'; break;
+                    case 'no-deposit': text = 'Без депозита'; break;
                     case 'fast-payout': text = 'Выплаты'; break;
                 }
                 filters.push({ type: 'goal', value: goal, text });
@@ -1465,34 +1889,49 @@
             filters.push({ type: 'game', value: currentFilters.game, text: gameText });
             
             // Рендеринг
-            bar.innerHTML = filters.map(filter => `
-                <div class="active-filter-tag">
-                    ${filter.text}
-                    <span class="remove-filter" onclick="removeFilter('${filter.type}', '${filter.value}')">
-                        <i class="fas fa-times"></i>
-                    </span>
-                </div>
-            `).join('');
+            if (filters.length > 0) {
+                bar.style.display = 'flex';
+                bar.innerHTML = filters.map(filter => `
+                    <div class="active-filter-tag">
+                        ${filter.text}
+                        <span class="remove-filter" onclick="removeFilter('${filter.type}', '${filter.value}')">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </div>
+                `).join('');
+            } else {
+                bar.style.display = 'none';
+                bar.innerHTML = '';
+            }
         }
 
         // Удаление фильтра
         function removeFilter(type, value) {
             if (type === 'goal') {
                 currentFilters.goal = currentFilters.goal.filter(g => g !== value);
-                document.querySelector(`[data-filter="goal"][data-value="${value}"]`).classList.remove('active');
+                const goalElement = document.querySelector(`[data-filter="goal"][data-value="${value}"]`);
+                if (goalElement) {
+                    goalElement.classList.remove('active');
+                }
             } else if (type === 'deposit') {
                 // Нельзя удалить депозит, сбрасываем к 1000
                 document.querySelectorAll('[data-filter="deposit"]').forEach(btn => {
                     btn.classList.remove('active');
                 });
-                document.querySelector('[data-filter="deposit"][data-value="1000"]').classList.add('active');
+                const depositDefault = document.querySelector('[data-filter="deposit"][data-value="1000"]');
+                if (depositDefault) {
+                    depositDefault.classList.add('active');
+                }
                 currentFilters.deposit = 1000;
             } else if (type === 'game') {
                 // Нельзя удалить игру, сбрасываем к слотам
                 document.querySelectorAll('[data-filter="game"]').forEach(btn => {
                     btn.classList.remove('active');
                 });
-                document.querySelector('[data-filter="game"][data-value="slots"]').classList.add('active');
+                const gameDefault = document.querySelector('[data-filter="game"][data-value="slots"]');
+                if (gameDefault) {
+                    gameDefault.classList.add('active');
+                }
                 currentFilters.game = 'slots';
             }
             
@@ -1523,20 +1962,60 @@
             });
         }
 
-        // Сортировка бонусов
-        function sortBonuses(bonuses) {
-            const sortBy = document.getElementById('sortSelect').value;
+        // Расчет количества доступных бонусов для фильтра
+        function calculateFilterCounts() {
+            const counts = {
+                deposit: {},
+                game: {},
+                goal: {}
+            };
             
-            return [...bonuses].sort((a, b) => {
-                switch(sortBy) {
-                    case 'bonus':
-                        // Сортировка по максимальному бонусу (простая логика)
-                        return a.id - b.id; // временно
-                    case 'payout':
-                        // Сортировка по скорости выплат
-                        return a.id - b.id; // временно
-                    default:
-                        return 0;
+            // Рассчитываем для каждого варианта фильтра
+            bonusesData.forEach(bonus => {
+                // Для депозита
+                bonus.deposit.forEach(deposit => {
+                    counts.deposit[deposit] = (counts.deposit[deposit] || 0) + 1;
+                });
+                
+                // Для игры
+                bonus.games.forEach(game => {
+                    counts.game[game] = (counts.game[game] || 0) + 1;
+                });
+                
+                // Для цели
+                bonus.goal.forEach(goal => {
+                    counts.goal[goal] = (counts.goal[goal] || 0) + 1;
+                });
+            });
+            
+            return counts;
+        }
+
+        // Обновление счетчиков фильтров
+        function updateFilterCounts() {
+            const counts = calculateFilterCounts();
+            
+            // Обновляем счетчики для депозита
+            Object.keys(counts.deposit).forEach(deposit => {
+                const element = document.querySelector(`[data-filter="deposit"][data-value="${deposit}"] .option-count`);
+                if (element) {
+                    element.textContent = counts.deposit[deposit];
+                }
+            });
+            
+            // Обновляем счетчики для игры
+            Object.keys(counts.game).forEach(game => {
+                const element = document.querySelector(`[data-filter="game"][data-value="${game}"] .option-count`);
+                if (element) {
+                    element.textContent = counts.game[game];
+                }
+            });
+            
+            // Обновляем счетчики для цели
+            Object.keys(counts.goal).forEach(goal => {
+                const element = document.querySelector(`[data-filter="goal"][data-value="${goal}"] .option-count`);
+                if (element) {
+                    element.textContent = counts.goal[goal];
                 }
             });
         }
@@ -1544,13 +2023,15 @@
         // Рендеринг карточек
         function renderBonuses() {
             const filteredBonuses = filterBonuses();
-            const sortedBonuses = sortBonuses(filteredBonuses);
             const grid = document.getElementById('bonusesGrid');
             const countElement = document.getElementById('resultsCount');
             
-            countElement.textContent = sortedBonuses.length;
+            // Обновляем счетчики фильтров
+            updateFilterCounts();
             
-            if (sortedBonuses.length === 0) {
+            countElement.textContent = filteredBonuses.length;
+            
+            if (filteredBonuses.length === 0) {
                 grid.innerHTML = `
                     <div class="no-results">
                         <div class="no-results-icon">
@@ -1558,7 +2039,7 @@
                         </div>
                         <h3>Ничего не найдено</h3>
                         <p>Попробуйте изменить параметры фильтрации</p>
-                        <button class="btn btn-secondary" onclick="resetFilters()" style="margin-top: 16px;">
+                        <button class="btn btn-primary" onclick="resetFilters()" style="margin-top: 16px;">
                             <i class="fas fa-redo"></i> Сбросить фильтры
                         </button>
                     </div>
@@ -1566,14 +2047,41 @@
                 return;
             }
             
-            grid.innerHTML = sortedBonuses.map(bonus => `
-                <div class="bonus-card" data-id="${bonus.id}">
+            grid.innerHTML = filteredBonuses.map(bonus => {
+                // Определяем класс бейджа в зависимости от типа
+                let badgeClass = '';
+                switch(bonus.badge.type) {
+                    case 'personal': badgeClass = 'badge-personal'; break;
+                    case 'exclusive': badgeClass = 'badge-exclusive'; break;
+                    case 'crypto': badgeClass = 'badge-crypto'; break;
+                    case 'premium': badgeClass = 'badge-premium'; break;
+                    default: badgeClass = 'badge-personal';
+                }
+                
+                // Создаем карточку с обработчиком клика на всю карточку
+                const card = document.createElement('div');
+                card.className = 'bonus-card';
+                card.dataset.id = bonus.id;
+                
+                // Обработчик клика на всю карточку
+                card.addEventListener('click', function(e) {
+                    // Проверяем, не кликнули ли по кнопке внутри карточки
+                    if (!e.target.closest('.action-btn')) {
+                        openDetailsModal(bonus.id);
+                    }
+                });
+                
+                // Остальной HTML карточки
+                card.innerHTML = `
+                    <div class="card-click-indicator">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
                     <div class="bonus-card-header">
                         <div class="casino-info">
                             <div class="casino-avatar">${bonus.casino.charAt(0)}</div>
                             <div class="casino-details">
                                 <div class="casino-name">${bonus.casino}</div>
-                                <div class="casino-badge">${bonus.badge}</div>
+                                <div class="casino-badge ${badgeClass}">${bonus.badge.text}</div>
                             </div>
                         </div>
                         <div class="bonus-status">
@@ -1595,15 +2103,17 @@
                     </div>
                     
                     <div class="bonus-actions">
-                        <button class="action-btn action-btn-primary" onclick="getBonus(${bonus.id})">
+                        <button class="action-btn action-btn-primary" onclick="event.stopPropagation(); getBonus(${bonus.id})">
                             <i class="fas fa-gift"></i> Получить
                         </button>
-                        <button class="action-btn action-btn-secondary" onclick="openDetailsModal(${bonus.id})">
+                        <button class="action-btn action-btn-secondary" onclick="event.stopPropagation(); openDetailsModal(${bonus.id})">
                             <i class="fas fa-info-circle"></i> Подробнее
                         </button>
                     </div>
-                </div>
-            `).join('');
+                `;
+                
+                return card.outerHTML;
+            }).join('');
         }
 
         // Открытие модального окна
@@ -1616,7 +2126,8 @@
             // Заполнение данных
             document.getElementById('modalCasinoIcon').textContent = bonus.casino.charAt(0);
             document.getElementById('modalCasinoName').textContent = bonus.casino;
-            document.getElementById('modalBadge').textContent = bonus.badge;
+            document.getElementById('modalBadge').textContent = bonus.badge.text;
+            document.getElementById('modalBadge').className = `modal-badge ${bonus.badge.type}`;
             document.getElementById('modalUpdated').textContent = bonus.updated;
             
             // Условия
@@ -1684,6 +2195,9 @@
         window.closeModal = closeModal;
         window.getBonus = getBonus;
         window.resetFilters = resetFilters;
+        
+        // Инициализация счетчиков при загрузке
+        updateFilterCounts();
     </script>
 </body>
 </html>
